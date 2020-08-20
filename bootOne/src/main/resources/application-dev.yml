@@ -1,0 +1,10 @@
+server:
+  port: 9010
+spring:
+  application:
+    name: bootOne
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10080/eureka/
