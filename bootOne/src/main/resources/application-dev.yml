@@ -2,9 +2,45 @@ server:
   port: 9010
 spring:
   application:
-    name: bootOne
-
+    name: bootOne-Dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.16.81.86:3306/oss_5gc_ems?useSSL=true&serverTimezone=UTC
+    username: root
+    password: Iwhalecloud1
 eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:10080/eureka/
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  global-config:
+    #映射文件热加载（发生变动后自动重新加载）切莫用于生产环境（后果自负）当开启热部署模式时，此项可以关掉
+    refresh-mapper: true
+    #刷新mapper 延迟加载时间
+    delay-seconds: 0
+    #刷新mapper 刷新间隔时间
+    sleep-seconds: 10
+    # 动态mapper查询类，用于读取数据库存储的mapper，需要实现接口：com.iwhalecloud.sdk.data.mybatis.config.DynamicMapperHandler
+    #dynamic-mapper-handler: com.iwhalecloud.sdk.data.mybatis.config.TestHandler
+  configuration:
+    #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    #配置JdbcTypeForNull, oracle数据库必须配置
+    jdbc-type-for-null: 'null'
+    #打印SQL日志到控制台
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #打印SQL到日志
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+logging:
+  path: ./logs/
+  level:
+    root: INFO
+    org:
+      bobo:
+        controller: WARN
+        service: DEBUG
+  #pattern:
+   # console: "%d{yyyy-MM-dd HH:mm:ss} %5p [%t] [%logger{40}:%L] - %m%n"
+  file: ./logs/${spring.application.name}-log.log
