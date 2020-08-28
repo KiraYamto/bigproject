@@ -11,50 +11,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 @RestController
-@RequestMapping("/first")
+@RequestMapping("/second")
 public class NsNstTemplateController {
 
     public static final Logger logger = LoggerFactory.getLogger(NsNstTemplateController.class);
     @Autowired
     private NsNstTemplateServiceImpl nsNstTemplateService;
-
-    @Autowired
-    private RestTemplate restTemplate;
-    //private CloseableHttpClient httpClient;
-
-
     @RequestMapping(value = {"/getNsNstTemplateList"}, method = RequestMethod.POST)
     public String getNsNstTemplateList(@RequestBody String requestBody, HttpServletRequest request, HttpServletResponse response){
-        logger.info("I am the first");
+        logger.info("I am the second");
         JSONObject json = JSON.parseObject(requestBody);
         String  nstName = json.getString("nstName");
         String  nstCode = json.getString("nstCode");
 
         List<NsNstTemplateDto> list = nsNstTemplateService.selectNsNstTemplateList(nstCode,nstName);
         String result = JSON.toJSONString(list);
-        logger.debug("NsNstTemplateController getNsNstTemplateList is {}",result);
-        logger.info("NsNstTemplateController getNsNstTemplateList is {}",result);
-        logger.warn("NsNstTemplateController getNsNstTemplateList is {}",result);
-        logger.error("NsNstTemplateController getNsNstTemplateList is {}",result);
+        logger.debug("getNsNstTemplateList is {}",result);
+        logger.info("getNsNstTemplateList is {}",result);
+        logger.warn("getNsNstTemplateList is {}",result);
+        logger.error("getNsNstTemplateList is {}",result);
 
         return result;
     }
-
-
-    @RequestMapping(value = {"/callBootTwo"}, method = RequestMethod.POST)
-    public String callBootTwo(@RequestBody String requestBody, HttpServletRequest request, HttpServletResponse response){
-        logger.info("I am the first,I will call callBootTwo soon,requestbody is {}",requestBody);
-        String url = "http://localhost:9020/second/getNsNstTemplateList";
-        String result = restTemplate.postForObject(url,requestBody,String.class);
-        logger.info("I am callTwo and response is {}",result);
-        return result;
-    }
-
 }

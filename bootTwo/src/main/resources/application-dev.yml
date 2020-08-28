@@ -1,8 +1,8 @@
 server:
-  port: 9010
+  port: 9020
 spring:
   application:
-    name: bootOne-Dev
+    name: bootTwo-Dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://172.16.81.86:3306/oss_5gc_ems?useSSL=true&serverTimezone=UTC
@@ -39,5 +39,8 @@ logging:
     root: INFO
     org:
       bobo:
-        controller: info
+        controller: WARN
         service: DEBUG
+  #pattern:
+   # console: "%d{yyyy-MM-dd HH:mm:ss} %5p [%t] [%logger{40}:%L] - %m%n"
+  file: ./logs/${spring.application.name}-log.log
