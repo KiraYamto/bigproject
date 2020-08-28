@@ -41,3 +41,7 @@ logging:
       bobo:
         controller: info
         service: DEBUG
+swagger:
+  #生产关闭，开发开启
+  enable: true
+

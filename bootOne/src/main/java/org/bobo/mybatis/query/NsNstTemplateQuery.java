@@ -1,6 +1,8 @@
 package org.bobo.mybatis.query;
 
-public class NsNstTemplateQuery {
+import java.io.Serializable;
+
+public class NsNstTemplateQuery implements Serializable {
     private long nstId;
     private String nstName;
     private String nstCode;
@@ -8,6 +10,9 @@ public class NsNstTemplateQuery {
     private int status;
     private String version;
     private String tag;
+
+    public NsNstTemplateQuery() {
+    }
 
     public NsNstTemplateQuery(long nstId, String nstName, String nstCode, String nstType, int status, String version, String tag) {
         this.nstId = nstId;
