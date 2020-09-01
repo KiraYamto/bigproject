@@ -8,6 +8,6 @@ import java.util.List;
 public interface NsNstTemplateService {
 
 
-    List<NsNstTemplateDto> selectNsNstTemplateList(String nstCode,String nstName);
+    List<NsNstTemplateDto> selectNsNstTemplateList(String nstCode, String nstName);
 
 }

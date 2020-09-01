@@ -8,6 +8,19 @@ spring:
     url: jdbc:mysql://172.16.81.86:3306/oss_5gc_ems?useSSL=true&serverTimezone=UTC
     username: root
     password: Iwhalecloud1
+  sleuth:
+    sampler:
+      #采用比例，默认 0.1 全部采样 1.0
+      probability: 1.0
+  zipkin:
+      ## 指定了Zipkin服务器的地址 千万不要加后缀
+    base-url: http://172.16.81.86:9411/
+# 关闭自动配置启用所有请求得检测
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
 eureka:
   client:
     serviceUrl:
@@ -39,9 +52,10 @@ logging:
     root: INFO
     org:
       bobo:
-        controller: info
+        controller: INFO
         service: DEBUG
 swagger:
   #生产关闭，开发开启
   enable: true
+
 

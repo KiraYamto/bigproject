@@ -8,6 +8,18 @@ spring:
     url: jdbc:mysql://172.16.81.86:3306/oss_5gc_ems?useSSL=true&serverTimezone=UTC
     username: root
     password: Iwhalecloud1
+  sleuth:
+    sampler:
+      #采用比例，默认 0.1 全部采样 1.0
+      probability: 1.0
+  zipkin:
+    #千万不要加后缀/zipkin http://172.16.81.86:9411/zipkin 这样无法发送
+    base-url: http://172.16.81.86:9411/
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
 eureka:
   client:
     serviceUrl:
