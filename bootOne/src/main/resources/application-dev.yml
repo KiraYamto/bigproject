@@ -14,7 +14,16 @@ spring:
       probability: 1.0
   zipkin:
       ## 指定了Zipkin服务器的地址 千万不要加后缀
-    base-url: http://172.16.81.86:9411/
+    #base-url: http://172.16.81.86:9411/  使用zipserver.jar
+    base-url: http://localhost:9411/
+
+
+#  zipkin.storage.type=elasticsearch
+#  zipkin.storage.elasticsearch.hosts=localhost:10200
+#  zipkin.storage.elasticsearch.cluster=zipkin-test
+#  zipkin.storage.elasticsearch.index=zipkin
+#  zipkin.storage.elasticsearch.index-shards=1
+#  zipkin.storage.elasticsearch.index-replicas=1
 # 关闭自动配置启用所有请求得检测
 management:
   metrics:

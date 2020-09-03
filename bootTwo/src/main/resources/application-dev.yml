@@ -14,7 +14,7 @@ spring:
       probability: 1.0
   zipkin:
     #千万不要加后缀/zipkin http://172.16.81.86:9411/zipkin 这样无法发送
-    base-url: http://172.16.81.86:9411/
+    base-url: http://localhost:9411/
 management:
   metrics:
     web:
