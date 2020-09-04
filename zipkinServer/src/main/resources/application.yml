@@ -20,3 +20,23 @@ management:
     web:
       server:
         auto-time-requests: false
+zipkin:
+  storage:
+    StorageComponent: elasticsearch
+    type: elasticsearch
+    elasticsearch:
+      hosts: 172.16.22.54:9201
+      cluster: app
+      index: zipkin
+      index-shards: 5
+      index-replicas: 1
+#  zipkin.storage.StorageComponent=elasticsearch
+#  zipkin.storage.type=elasticsearch
+#  #可以做集群，我用的本地测试没有部署elastic集群
+#  zipkin.storage.elasticsearch.hosts=192.168.42.40:9200
+#  zipkin.storage.elasticsearch.cluster=elasticsearch
+#  zipkin.storage.elasticsearch.index=zipkin
+#  zipkin.storage.elasticsearch.index-shards=5
+#  zipkin.storage.elasticsearch.index-replicas=1
+#  maxHttpHeaderSize=8192
+#  action.auto_create_index=true
