@@ -56,8 +56,11 @@ logging:
     root: INFO
     org:
       bobo:
-        controller: WARN
+        controller: INFO
         service: DEBUG
+  logstash-hosts: 172.16.22.54:9650
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %5p [%t] [%logger{40}:%L] - %m%n"
   #pattern:
    # console: "%d{yyyy-MM-dd HH:mm:ss} %5p [%t] [%logger{40}:%L] - %m%n"
   file: ./logs/${spring.application.name}-log.log

@@ -30,6 +30,8 @@ import java.util.List;
 public class NsNstTemplateController {
 
     public static final Logger logger = LoggerFactory.getLogger(NsNstTemplateController.class);
+    public static final Logger logstashLogger = LoggerFactory.getLogger("LOGSTASH_LOGBACK");
+
     @Autowired
     private NsNstTemplateServiceImpl nsNstTemplateService;
 
@@ -60,6 +62,10 @@ public class NsNstTemplateController {
     @RequestMapping(value = {"/getNsNstTemplateList"}, method = RequestMethod.POST)
     public String getNsNstTemplateList(@ApiIgnore @RequestBody NsNstTemplateQuery query, HttpServletRequest request, HttpServletResponse response){
         logger.info("I am the first,request body is {}", JSON.toJSONString(query));
+
+        logstashLogger.info("I am the first,request body is {}", JSON.toJSONString(query));
+
+
         String  nstName = query.getNstName();
         String  nstCode = query.getNstCode();
 
@@ -69,7 +75,10 @@ public class NsNstTemplateController {
         logger.info("NsNstTemplateController getNsNstTemplateList is {}",result);
         logger.warn("NsNstTemplateController getNsNstTemplateList is {}",result);
         logger.error("NsNstTemplateController getNsNstTemplateList is {}",result);
-
+        logstashLogger.debug("NsNstTemplateController getNsNstTemplateList is {}",result);
+        logstashLogger.info("NsNstTemplateController getNsNstTemplateList is {}",result);
+        logstashLogger.warn("NsNstTemplateController getNsNstTemplateList is {}",result);
+        logstashLogger.error("NsNstTemplateController getNsNstTemplateList is {}",result);
         return result;
     }
 
@@ -77,9 +86,12 @@ public class NsNstTemplateController {
     @RequestMapping(value = {"/callBootTwo"}, method = RequestMethod.POST)
     public String callBootTwo(@RequestBody String requestBody, HttpServletRequest request, HttpServletResponse response){
         logger.info("I am the first,I will call callBootTwo soon,requestbody is {}",requestBody);
+        logstashLogger.info("I am the first,I will call callBootTwo soon,requestbody is {}",requestBody);
+
         String url = "http://localhost:9020/second/getNsNstTemplateList";
         String result = restTemplate.postForObject(url,requestBody,String.class);
         logger.info("I am callTwo and response is {}",result);
+        logstashLogger.info("I am callTwo and response is {}",result);
         return result;
     }
 

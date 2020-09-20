@@ -23,6 +23,8 @@ import java.util.List;
 public class NsNstTemplateController {
 
     public static final Logger logger = LoggerFactory.getLogger(NsNstTemplateController.class);
+    public static final Logger logstashLogger = LoggerFactory.getLogger("LOGSTASH_LOGBACK");
+
     @Autowired
     private NsNstTemplateServiceImpl nsNstTemplateService;
     @Autowired
@@ -30,6 +32,8 @@ public class NsNstTemplateController {
     @RequestMapping(value = {"/getNsNstTemplateList"}, method = RequestMethod.POST)
     public String getNsNstTemplateList(@RequestBody String requestBody, HttpServletRequest request, HttpServletResponse response){
         logger.info("I am the second");
+        logstashLogger.info("I am the second,request body is {}", JSON.toJSONString(requestBody));
+
         JSONObject json = JSON.parseObject(requestBody);
         String  nstName = json.getString("nstName");
         String  nstCode = json.getString("nstCode");
@@ -40,12 +44,18 @@ public class NsNstTemplateController {
         logger.info("getNsNstTemplateList is {}",result);
         logger.warn("getNsNstTemplateList is {}",result);
         logger.error("getNsNstTemplateList is {}",result);
+        logstashLogger.debug("NsNstTemplateController getNsNstTemplateList is {}",result);
+        logstashLogger.info("NsNstTemplateController getNsNstTemplateList is {}",result);
+        logstashLogger.warn("NsNstTemplateController getNsNstTemplateList is {}",result);
+        logstashLogger.error("NsNstTemplateController getNsNstTemplateList is {}",result);
         return result;
     }
 
     @RequestMapping(value = {"/callBootOne"}, method = RequestMethod.POST)
     public String callBootOne(@RequestBody String requestBody, HttpServletRequest request, HttpServletResponse response){
         logger.info("I am the second,I will call callBootOne soon,requestbody is {}",requestBody);
+        logstashLogger.info("I am the second,I will call callBootOne soon,requestbody is {}",requestBody);
+
         JSONObject json = JSON.parseObject(requestBody);
         String  nstName = json.getString("nstName");
         String  nstCode = json.getString("nstCode");
@@ -53,6 +63,8 @@ public class NsNstTemplateController {
         String url = "http://localhost:9010/first/getNsNstTemplateList";
         String result = restTemplate.postForObject(url,query,String.class);
         logger.info("I am callTwo and response is {}",result);
+        logstashLogger.info("I am callTwo and response is {}",result);
+
         return result;
     }
 }
