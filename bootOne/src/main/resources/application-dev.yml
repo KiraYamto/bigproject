@@ -8,6 +8,18 @@ spring:
     url: jdbc:mysql://172.16.81.86:3306/oss_5gc_ems?useSSL=true&serverTimezone=UTC
     username: root
     password: Iwhalecloud1
+  redis:
+    database: 0
+    timeout: 60s
+    cluster:
+      nodes: 172.16.22.55:7001,172.16.22.55:7002,172.16.22.55:7003,172.16.22.55:7004,172.16.22.55:7005,172.16.22.55:7006
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+    password: 123456
   sleuth:
     sampler:
       #采用比例，默认 0.1 全部采样 1.0
@@ -21,12 +33,6 @@ spring:
       type: kafka
   kafka:
     bootstrap-servers: 172.16.81.86:9092
-#  zipkin.storage.type=elasticsearch
-#  zipkin.storage.elasticsearch.hosts=localhost:10200
-#  zipkin.storage.elasticsearch.cluster=zipkin-test
-#  zipkin.storage.elasticsearch.index=zipkin
-#  zipkin.storage.elasticsearch.index-shards=1
-#  zipkin.storage.elasticsearch.index-replicas=1
 # 关闭自动配置启用所有请求得检测
 management:
   metrics:
