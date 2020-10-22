@@ -68,8 +68,7 @@ public class NsNstTemplateController {
 
         String  nstName = query.getNstName();
         String  nstCode = query.getNstCode();
-
-        List<NsNstTemplateDto> list = nsNstTemplateService.selectNsNstTemplateList(nstCode,nstName);
+        List<NsNstTemplateDto> list = nsNstTemplateService.selectNsNstTemplateListFromMock(nstCode,nstName);
         String result = JSON.toJSONString(list);
         logger.debug("NsNstTemplateController getNsNstTemplateList is {}",result);
         logger.info("NsNstTemplateController getNsNstTemplateList is {}",result);
