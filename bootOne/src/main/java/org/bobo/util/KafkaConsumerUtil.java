@@ -9,11 +9,11 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class KafkaComsumerUtil {
+public class KafkaConsumerUtil {
 
     public static final Logger logstashLogger = LoggerFactory.getLogger("LOGSTASH_LOGBACK");
 
-    private static final Logger logger = LoggerFactory.getLogger(KafkaComsumerUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(KafkaConsumerUtil.class);
 
 
     @Value("${spring.kafka.template.default-topic}")
@@ -22,7 +22,10 @@ public class KafkaComsumerUtil {
     private String inputTopic;
     @Value("${spring.kafka.template.output-topic}")
     private String outputTopic;
-
+    @Value("${spring.kafka.template.flink-input}")
+    private String flinkIn;
+    @Value("${spring.kafka.template.flink-output}")
+    private String flinkOut;
     @KafkaListener(topics = "${spring.kafka.template.input-topic}",groupId = "${spring.kafka.consumer.group-id}")
     public void consumes(ConsumerRecord message) {
         Object value = message.value();
@@ -34,6 +37,19 @@ public class KafkaComsumerUtil {
         else if (value instanceof JSONObject) {
             logstashLogger.info("receive message from kafka topic {},and message is {}",inputTopic,JSONObject.toJSONString(value));
             logger.info("receive message from kafka topic {},and message is {}",inputTopic,JSONObject.toJSONString(value));
+        }
+    }
+
+    @KafkaListener(topics = "${spring.kafka.template.flink-input}",groupId = "${spring.kafka.consumer.group-id}")
+    public void readFlinkMessage(ConsumerRecord message) {
+        Object value = message.value();
+        if (value instanceof String) {
+            logstashLogger.info("receive message from kafka topic {},and message is {}",flinkIn,value);
+            logger.info("receive message from kafka topic {},and message is {}",flinkIn,value);
+        }
+        else if (value instanceof JSONObject) {
+            logstashLogger.info("receive message from kafka topic {},and message is {}",flinkIn,JSONObject.toJSONString(value));
+            logger.info("receive message from kafka topic {},and message is {}",flinkIn,JSONObject.toJSONString(value));
         }
 
     }

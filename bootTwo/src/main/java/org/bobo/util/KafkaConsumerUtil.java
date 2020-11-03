@@ -9,11 +9,11 @@ import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 @Component
-public class KafkaComsumerUtil {
+public class KafkaConsumerUtil {
 
     public static final Logger logstashLogger = LoggerFactory.getLogger("LOGSTASH_LOGBACK");
 
-    private static final Logger logger = LoggerFactory.getLogger(KafkaComsumerUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(KafkaConsumerUtil.class);
 
 
     @Value("${spring.kafka.template.default-topic}")
