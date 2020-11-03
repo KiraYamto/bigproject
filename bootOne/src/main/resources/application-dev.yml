@@ -32,7 +32,29 @@ spring:
     sender:
       type: kafka
   kafka:
-    bootstrap-servers: 172.16.81.86:9092
+    #bootstrap-servers: 172.16.81.86:9092
+    #bootstrap-servers: 172.16.22.55:9093
+    template:
+      default-topic: kafka-default
+      input-topic: kafka-input
+      output-topic: kafka-output
+    consumer:
+      group-id: test-group
+      enable-auto-commit: true
+      auto-commit-interval: 100
+      session-time-out: 20000
+      concurrency: 10
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+      bootstrap-servers: 172.16.22.55:9093
+    producer:
+      bootstrap-servers: 172.16.22.55:9093
+      retries: 0
+      batch-size: 4096
+      buffer-memory: 40960
+      linger: 1
+
 # 关闭自动配置启用所有请求得检测
 management:
   metrics:

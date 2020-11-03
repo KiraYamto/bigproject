@@ -12,4 +12,5 @@
         <include resource="org/springframework/boot/logging/logback/default.xml" />
         <include resource="file-appender.xml" />
         <include resource="logstash-appender.xml" />
+        <include resource="logback-console.xml" />
 </configuration>
