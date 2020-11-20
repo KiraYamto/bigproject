@@ -1,0 +1,245 @@
+{
+	"external_order_id": "34452222",
+	"create_time": "1572395131732",
+	"order_source": "wxapp",
+	"order_type": 1,
+	"brand_id": "1455222",
+	"brand_name": "百丽",
+	"goods_num_total": 3,
+	"goods_weight": 400.00,
+	"goods_amount_total": 562.00,
+	"freight_amount": 10.00,
+	"order_amount": 572.00,
+	"payable_amount": 560.00,
+	"payment_amount": 560.00,
+	"order_status": "1150",
+	"user_info": {
+		"open_id": "ok4Qb0U0dFqJ2KiSoGBXKCIqXnFY",
+		"app_id": "wxc8f3e27b33ae9e8e",
+		"union_id": "k4Qb0U0dFqJ2K",
+		"user_phone": "13666666666",
+		"user_id": "q2Qb0U0dFqJ2KGE",
+		"member_id": "8f323e76jsw3ae9e8e",
+		"user_first_order_time": "1572395131732"
+	},
+	"goods_info": [{
+			"external_sku_id": "cS1cWjrkFbFUA",
+			"sku_name_chinese": "鞋子蓝色",
+			"goods_amount": 60.00,
+			"payment_amount": 110.00,
+			"is_gift": 0,
+			"external_spu_id": "F-306233",
+			"spu_name_chinese": "鞋子",
+			"sale_unit": "双",
+			"category_id": "0001",
+			"category_name": "服装",
+			"goods_num": 2,
+			"goods_weight": 350.00,
+			"store_info": {
+				"external_store_id": "9L33",
+				"store_name": "文华仓",
+				"store_city": "福州市"
+			},
+			"chan_info": [{
+				"chan_wxapp": {
+					"chan_scene": "1140"
+				},
+				"chan_custom": {
+					"chan_custom_id": "123456",
+					"chan_custom_id_desc": "123456",
+					"chan_custom_cat_3": "123456",
+					"chan_custom_cat_3_desc": "123456",
+					"chan_custom_cat_2": "123456",
+					"chan_custom_cat_2_desc": "123456",
+					"chan_custom_cat_1": "123456",
+					"chan_custom_cat_1_desc": "123456"
+				},
+				"chan_id": "8_5a23p4ded6ff6384",
+				"chan_refer_app_id": "wxc8f3e27b33ae9e8e"
+			}],
+			"commission_info": [{
+					"commission_type": 1,
+					"commission_fee": 10.00
+				},
+				{
+					"commission_type": 1,
+					"commission_fee": 20.00
+				}
+			]
+		},
+		{
+			"external_sku_id": "caaajrkFbFUA",
+			"sku_name_chinese": "连衣裙红色",
+			"goods_amount": 90.00,
+			"payment_amount": 85.00,
+			"is_gift": 0,
+			"external_spu_id": "F-306233",
+			"spu_name_chinese": "连衣裙",
+			"sale_unit": "件",
+			"category_id": "0001",
+			"category_name": "服装",
+			"goods_num": 1,
+			"goods_weight": 350.00,
+			"store_info": {
+				"external_store_id": "9L33",
+				"store_name": "文华仓",
+				"store_city": "福州市"
+			},
+			"chan_info": [{
+				"chan_wxapp": {
+					"chan_scene": "1140"
+				},
+				"chan_custom": {
+					"chan_custom_id": "123456",
+					"chan_custom_id_desc": "123456",
+					"chan_custom_cat_3": "123456",
+					"chan_custom_cat_3_desc": "123456",
+					"chan_custom_cat_2": "123456",
+					"chan_custom_cat_2_desc": "123456",
+					"chan_custom_cat_1": "123456",
+					"chan_custom_cat_1_desc": "123456"
+				},
+				"chan_id": "8_5a23p4ded6ff6384",
+				"chan_refer_app_id": "wxc8f3e27b33ae9e8e"
+			}],
+			"commission_info": [{
+					"commission_type": 1,
+					"commission_fee": 10.00
+				},
+				{
+					"commission_type": 1,
+					"commission_fee": 20.00
+				}
+			]
+		}
+	],
+	"promotion_info": [{
+			"promotion_type": 1,
+			"external_promotion_id": "277329",
+			"promotion_name": "五一优惠券",
+			"promotion_amount": 120.00
+		},
+		{
+			"promotion_type": 1,
+			"external_promotion_id": "277329",
+			"promotion_name": "双十一优惠",
+			"promotion_amount": 100.00
+		}
+	],
+	"coupon_info": [{
+			"coupon_type": 1,
+			"coupon_amount_total": 200.00,
+			"coupon_detail": [{
+					"external_coupon_id": "UWBE8873basfJ",
+					"coupon_batch_id": "37BHknfE832DW",
+					"coupon_name": "会员10元优惠券",
+					"coupon_amount": 100.00
+				},
+				{
+					"external_coupon_id": "46568873basfJ",
+					"coupon_batch_id": "37BHknfE832DW",
+					"coupon_name": "节日10元优惠券",
+					"coupon_amount": 100.00
+				}
+			]
+		},
+		{
+			"coupon_type": 1,
+			"coupon_amount_total": 30.00,
+			"coupon_detail": [{
+					"external_coupon_id": "4558873basfJ",
+					"coupon_batch_id": "37455fE832DW",
+					"coupon_name": "支付2元优惠券",
+					"coupon_amount": 20.00
+				},
+				{
+					"external_coupon_id": "4558873basfJ",
+					"coupon_batch_id": "37455fE832DW",
+					"coupon_name": "支付叠加1元优惠券",
+					"coupon_amount": 10.00
+				}
+			]
+		}
+	],
+	"payment_info": [{
+			"payment_type": "00009",
+			"trans_id": "243245125",
+			"trans_amount": 100.00
+		},
+		{
+			"payment_type": "00004",
+			"trans_id": "2566245125",
+			"trans_amount": 200.00
+		}
+	],
+	"express_info": {
+		"logistics_status": "3010",
+		"goods_total_weight": 150.00,
+		"receiver_name": "Jerry",
+		"receiver_phone": "13666666666",
+		"receiver_address": "广东省深圳市XXX",
+		"receiver_country_code": "CN",
+		"receiver_province_code": "440000",
+		"receiver_city_code": "440001",
+		"receiver_district_code": "440001",
+		"expected_delivery_time": "9:00-12:00",
+		"expected_delivery_date": "20190501",
+		"express_package_info": [{
+			"express_company_code": "100003",
+			"express_company_name": "顺丰",
+			"express_code": "27427185",
+			"ship_time": "1572395131732",
+			"express_page": {
+				"miniprogram_path": "page/XXXX",
+				"miniprogram_appid": "wxc8f3e27b33ae9e8e",
+				"miniprogram_h5": "http://XXX"
+			},
+			"express_package_info": [{
+					"external_sku_id": "7888372",
+					"number": 1
+				},
+				{
+					"external_sku_id": "FE-788837201",
+					"number": 3
+				}
+			]
+		}]
+	},
+	"invoice": [{
+			"if_need_invoice": false,
+			"invoice_type": "1002",
+			"invoice_title": "UUnw829auH",
+			"invoice_content": "F371BYSWfe",
+			"invoice_addition_info": "无",
+			"invoice_company": "广东深圳公司",
+			"invoice_taxpayer": "510107723420661",
+			"registry_address": "广东深圳市",
+			"registry_phone": "18780475755",
+			"registry_bank_name": "工商银行",
+			"registry_bank_account": "698374522",
+			"invoice_delivery_address": "广东深圳市",
+			"invoice_delivery_name": "Jerry",
+			"invoice_delivery_phone": "18780475755",
+			"invoice_num": "8377205631"
+		},
+		{
+			"if_need_invoice": true,
+			"invoice_type": "1001",
+			"invoice_title": "aaUnw829auH",
+			"invoice_content": "aa71BYSWfe",
+			"invoice_addition_info": "无",
+			"invoice_company": "广东深圳公司",
+			"invoice_taxpayer": "510107723420661",
+			"registry_address": "广东深圳市",
+			"registry_phone": "18780475755",
+			"registry_bank_name": "工商银行",
+			"registry_bank_account": "698374522",
+			"invoice_delivery_address": "广东深圳市",
+			"invoice_delivery_name": "tom",
+			"invoice_delivery_phone": "18780475755",
+			"invoice_num": "8377205631"
+		}
+	],
+	"points_total": 200.00,
+	"is_deleted": 0
+}

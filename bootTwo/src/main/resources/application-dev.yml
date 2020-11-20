@@ -97,3 +97,8 @@ logging:
   #pattern:
    # console: "%d{yyyy-MM-dd HH:mm:ss} %5p [%t] [%logger{40}:%L] - %m%n"
   file: ./logs/${spring.application.name}-log.log
+zookeeper:
+  address: 172.16.22.55:12181
+  timeout: 4000
+  ##ZK 客户端
+  node-path: /boot-one

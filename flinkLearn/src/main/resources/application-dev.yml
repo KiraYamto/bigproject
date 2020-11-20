@@ -1,0 +1,106 @@
+server:
+  port: 9030
+spring:
+  application:
+    name: flink-Dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.16.81.86:3306/oss_5gc_ems?useSSL=true&serverTimezone=UTC
+    username: root
+    password: Iwhalecloud1
+  redis:
+    database: 0
+    timeout: 60s
+    cluster:
+      nodes: 172.16.22.55:7001,172.16.22.55:7002,172.16.22.55:7003,172.16.22.55:7004,172.16.22.55:7005,172.16.22.55:7006
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: -1
+        min-idle: 0
+    password: 123456
+  sleuth:
+    sampler:
+      #采用比例，默认 0.1 全部采样 1.0
+      probability: 1.0
+  zipkin:
+      ## 指定了Zipkin服务器的地址 千万不要加后缀
+    #使用zipserver.jar
+    base-url: http://172.16.81.86:9411/
+    #base-url: http://localhost:9411/
+    sender:
+      type: kafka
+  kafka:
+    #bootstrap-servers: 172.16.81.86:9092
+    #bootstrap-servers: 172.16.22.55:9093
+    template:
+      default-topic: kafka-default
+      input-topic: kafka-input
+      output-topic: kafka-output
+      flink-input: flink-input
+      flink-output: flink-ouput
+      onex-topic: onex
+    consumer:
+      group-id: test-group
+      enable-auto-commit: true
+      auto-commit-interval: 100
+      session-time-out: 20000
+      concurrency: 10
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      auto-offset-reset: earliest
+      bootstrap-servers: 172.16.22.55:9093
+    producer:
+      bootstrap-servers: 172.16.22.55:9093
+      retries: 0
+      batch-size: 4096
+      buffer-memory: 40960
+      linger: 1
+      acks: all
+
+# 关闭自动配置启用所有请求得检测
+management:
+  metrics:
+    web:
+      server:
+        auto-time-requests: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:10080/eureka/
+mybatis-plus:
+  mapper-locations: classpath:mapper/**/*Mapper.xml
+  global-config:
+    #映射文件热加载（发生变动后自动重新加载）切莫用于生产环境（后果自负）当开启热部署模式时，此项可以关掉
+    refresh-mapper: true
+    #刷新mapper 延迟加载时间
+    delay-seconds: 0
+    #刷新mapper 刷新间隔时间
+    sleep-seconds: 10
+    # 动态mapper查询类，用于读取数据库存储的mapper，需要实现接口：com.iwhalecloud.sdk.data.mybatis.config.DynamicMapperHandler
+    #dynamic-mapper-handler: com.iwhalecloud.sdk.data.mybatis.config.TestHandler
+  configuration:
+    #配置返回数据库(column下划线命名&&返回java实体是驼峰命名)，自动匹配无需as（没开启这个，SQL需要写as： select user_id as userId）
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    #配置JdbcTypeForNull, oracle数据库必须配置
+    jdbc-type-for-null: 'null'
+    #打印SQL日志到控制台
+    #log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    #打印SQL到日志
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
+logging:
+  path: ./logs/
+  level:
+    root: INFO
+    org:
+      bobo:
+        controller: INFO
+        service: DEBUG
+  logstash-hosts: 172.16.22.54:9650
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} %5p [%t] [%logger{40}:%L] - %m%n"
+swagger:
+  #生产关闭，开发开启
+  enable: true

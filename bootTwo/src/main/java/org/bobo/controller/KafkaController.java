@@ -1,6 +1,6 @@
 package org.bobo.controller;
 
-import org.bobo.util.KafkaComsumerUtil;
+import org.bobo.util.KafkaConsumerUtil;
 import org.bobo.util.KafkaProducerUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,7 +22,7 @@ public class KafkaController {
 
     @Autowired
     private KafkaProducerUtil producer;
-    private KafkaComsumerUtil comsumer;
+    private KafkaConsumerUtil comsumer;
 
     @Value("${spring.kafka.template.default-topic}")
     private String defaultTopic;

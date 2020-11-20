@@ -54,7 +54,6 @@ spring:
       batch-size: 4096
       buffer-memory: 40960
       linger: 1
-
 # 关闭自动配置启用所有请求得检测
 management:
   metrics:
@@ -100,5 +99,8 @@ logging:
 swagger:
   #生产关闭，开发开启
   enable: true
-
-
+zookeeper:
+  address: 172.16.22.55:12181
+  timeout: 4000
+  ##ZK 服务端使用，客户端
+  node-path: /boot-one,/boot-two

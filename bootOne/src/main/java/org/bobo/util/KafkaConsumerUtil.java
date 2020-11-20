@@ -22,10 +22,7 @@ public class KafkaConsumerUtil {
     private String inputTopic;
     @Value("${spring.kafka.template.output-topic}")
     private String outputTopic;
-    @Value("${spring.kafka.template.flink-input}")
-    private String flinkIn;
-    @Value("${spring.kafka.template.flink-output}")
-    private String flinkOut;
+
     @KafkaListener(topics = "${spring.kafka.template.input-topic}",groupId = "${spring.kafka.consumer.group-id}")
     public void consumes(ConsumerRecord message) {
         Object value = message.value();
@@ -40,7 +37,7 @@ public class KafkaConsumerUtil {
         }
     }
 
-    @KafkaListener(topics = "${spring.kafka.template.flink-input}",groupId = "${spring.kafka.consumer.group-id}")
+/*    @KafkaListener(topics = "${spring.kafka.template.flink-input}",groupId = "${spring.kafka.consumer.group-id}")
     public void readFlinkMessage(ConsumerRecord message) {
         Object value = message.value();
         if (value instanceof String) {
@@ -52,7 +49,7 @@ public class KafkaConsumerUtil {
             logger.info("receive message from kafka topic {},and message is {}",flinkIn,JSONObject.toJSONString(value));
         }
 
-    }
+    }*/
 
 
 

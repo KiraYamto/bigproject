@@ -1,0 +1,15 @@
+server:
+  port: 9012
+eureka:
+  instance:
+    hostname: localhost
+spring:
+  profiles:
+    active: dev
+  application:
+    name: bootOne
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://172.16.81.86:3306/oss_5gc_ems?useSSL=true&serverTimezone=UTC
+    username: root
+    password: Iwhalecloud1

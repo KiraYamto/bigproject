@@ -1,0 +1,47 @@
+{
+  "type": "page_share_app_message",
+  "props": {
+    "from_type": "button",
+    "share_title": "女士2019新款连帽中长款羽绒服冬季厚款保暖外套",
+    "share_path": "pages/product?sku_id=AOdjf7u",
+    "share_image_url": "https://pages/product?sku_id=AOdjf7u.jpg",
+    "share_to": "friends",
+    "page": "pages/product?sku_id=AOdjf7u",
+    "page_title": "商品详情、商城首页",
+    "time": "1560409473714",
+    "wx_user": {
+      "app_id": "wx9d4f5f22pa099f82",
+      "open_id": "ogN6X0T-ilsH-XmIdzXtuR1f1r3Q",
+      "user_id": "548019854034",
+      "union_id": "o6_bmlsdaXds8d6_sgVt7hM3OPfL",
+      "local_id": "360b8853-64bf-3fba-e9a0-5abb1e4d7721",
+      "tag": [
+        {
+          "tag_id": "游客",
+          "tag_name": "游客"
+        }
+      ]
+    },
+    "chan": {
+      "chan_wxapp_scene": 1037,
+      "chan_id": "11",
+      "chan_refer_app_id": "wx9d6f5f6gea059654",
+      "chan_shop_id": "11",
+      "chan_shop_name": "11",
+      "chan_custom": {
+        "chan_custom_id": "mp-article-12375",
+        "chan_custom_id_desc": "公众号文章(id=12375)",
+        "chan_custom_cat_3": "mp-article",
+        "chan_custom_cat_3_desc": "公众号文章",
+        "chan_custom_cat_2": "media",
+        "chan_custom_cat_2_desc": "媒体",
+        "chan_custom_cat_1": "wechat",
+        "chan_custom_cat_1_desc": "微信"
+      }
+    },
+    "component": {
+      "component_id": "",
+      "component_name": ""
+    }
+  }
+}

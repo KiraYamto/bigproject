@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+说明：
+    1. 文件的命名和加载顺序有关
+       logback.xml早于application.yml加载，logback-spring.xml晚于application.yml加载
+       如果logback配置需要使用application.yml中的属性，需要命名为logback-spring.xml
+    2. logback使用application.yml中的属性
+       使用springProperty才可使用application.yml中的值 可以设置默认值
+
+-->
+<configuration>
+        <include resource="org/springframework/boot/logging/logback/default.xml" />
+        <include resource="file-appender.xml" />
+        <include resource="logstash-appender.xml" />
+        <include resource="logback-console.xml" />
+</configuration>

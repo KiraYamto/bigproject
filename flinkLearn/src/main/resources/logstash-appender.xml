@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+	<springProperty scope="context" name="springAppName" source="spring.application.name" />
+	<springProperty scope="context" name="logging.logstash-hosts" source="logging.logstash-hosts"/>
+	<!-- 为logstash输出的JSON格式的Appender -->
+	<if condition='p("logging.logstash-hosts").length() != 0'>
+		<then>
+			<appender name="logstash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+				<destination>${logging.logstash-hosts}</destination>
+				<!-- 日志输出编码 -->
+				<encoder class="net.logstash.logback.encoder.LoggingEventCompositeJsonEncoder">
+					<providers>
+						<timestamp>
+							<timeZone>UTC</timeZone>
+						</timestamp>
+						<pattern>
+							<pattern>
+								{
+								"time": "%d{yyyy-MM-dd HH:mm:ss}",
+								"level": "%level",
+								"service": "${springAppName:-}",
+								"trace": "%X{X-B3-TraceId:-}",
+								"span": "%X{X-B3-SpanId:-}",
+								"exportable": "%X{X-Span-Export:-}",
+								"pid": "${PID:-}",
+								"thread": "%thread",
+								"class": "%logger{40}:%L",
+								"message": "%message"
+								}
+							</pattern>
+						</pattern>
+					</providers>
+				</encoder>
+			</appender>
+			<!--<root>
+				<appender-ref ref="logstash"/>
+			</root>-->
+			<!--與普通日誌區分-->
+			<logger name="LOGSTASH_LOGBACK" level="INFO" additivity="false">
+				<appender-ref ref="logstash"/>
+			</logger>
+		</then>
+	</if>
+</included>
