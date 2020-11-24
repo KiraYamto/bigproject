@@ -98,7 +98,12 @@ logging:
    # console: "%d{yyyy-MM-dd HH:mm:ss} %5p [%t] [%logger{40}:%L] - %m%n"
   file: ./logs/${spring.application.name}-log.log
 zookeeper:
+  namespace: fm-rule
   address: 172.16.22.55:12181
-  timeout: 4000
-  ##ZK 客户端
-  node-path: /boot-one
+  heart-beat: 30 #30S 可配置
+  timeout: 10000
+  session-timeout: 6000
+  connect-timeout: 6000
+  ##ZK 服务端使用，客户端
+  parent-node-path: /fm-rule
+  node-path: ${zookeeper.parent-node-path}/boot-two

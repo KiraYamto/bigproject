@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.io.IOException;
 
-@Component
+
 public class ZkClient {
 
     private static final Logger logger = LoggerFactory.getLogger(ZkClient.class);
@@ -24,7 +24,6 @@ public class ZkClient {
     private String nodePath ;
     ZooKeeper zkCli = null;
 
-    @PostConstruct
     private void init(){
         try {
             zkCli = new ZooKeeper(zkAddress, timeout, new NodeWatcher());

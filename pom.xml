@@ -12,6 +12,8 @@
         <module>eureka</module>
         <module>bootOne</module>
         <module>bootTwo</module>
+        <module>zipkinServer</module>
+        <module>flinkLearn</module>
     </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -35,7 +37,7 @@
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR1</version>
+                    <version>Greenwich.SR1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -59,6 +61,11 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+
+
+
+
         </dependencies>
     </dependencyManagement>
     <repositories>

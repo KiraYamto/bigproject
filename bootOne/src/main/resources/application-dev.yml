@@ -100,7 +100,12 @@ swagger:
   #生产关闭，开发开启
   enable: true
 zookeeper:
+  namespace: fm-rule
   address: 172.16.22.55:12181
+  heart-beat: 30 #30S 可配置
   timeout: 4000
+  session-timeout: 6000
+  connect-timeout: 6000
   ##ZK 服务端使用，客户端
-  node-path: /boot-one,/boot-two
+  parent-node-path: /fm-rule
+  node-path: ${zookeeper.parent-node-path}/boot-one,${zookeeper.parent-node-path}/boot-two

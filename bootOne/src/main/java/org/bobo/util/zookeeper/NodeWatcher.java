@@ -17,18 +17,20 @@ public class NodeWatcher implements Watcher{
 
 	@Override
 	public void process(WatchedEvent event) {
-		if (event.getType() == EventType.NodeDeleted) {
-			//临时节点被删除了，则节点不在线；触发后，watcher被删除，继续添加watcher
-			logger.info("node {} was deleted",event.getPath());
-			System.out.println("节点" + event.getPath() + "掉线");
-			//监控到掉线之后 后面就是应急处理
-			//dosomething
-		}else if (event.getType() == EventType.NodeCreated) {
-			//临时节点被创建了，则节点上线了；触发后，watcher被删除，继续添加watcher
-			logger.info("node {} was created",event.getPath());
-			System.out.println("节点" + event.getPath() + "上线");
+		while(true){
+			if (event.getType() == EventType.NodeDeleted) {
+				//临时节点被删除了，则节点不在线；触发后，watcher被删除，继续添加watcher
+				logger.info("node {} was deleted",event.getPath());
+				System.out.println("节点" + event.getPath() + "掉线");
+				
+				//监控到掉线之后 后面就是应急处理
+				//dosomething
+			}else if (event.getType() == EventType.NodeCreated) {
+				//临时节点被创建了，则节点上线了；触发后，watcher被删除，继续添加watcher
+				logger.info("node {} was created",event.getPath());
+				System.out.println("节点" + event.getPath() + "上线");
+			}
 		}
-
 	}
 	
 	

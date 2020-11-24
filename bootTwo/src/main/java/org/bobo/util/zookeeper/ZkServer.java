@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.concurrent.ThreadPoolExecutor;
 
 @Component
 public class ZkServer {
@@ -18,7 +19,7 @@ public class ZkServer {
     ZooKeeper zkCli = null;
 
     // 1.连接zkServer
-    @PostConstruct
+    //@PostConstruct
     public void init() throws Exception {
         zkCli = new ZooKeeper(zkAddress, timeout, new NodeWatcher());
         String[] nodeArr = nodePath.split(",");

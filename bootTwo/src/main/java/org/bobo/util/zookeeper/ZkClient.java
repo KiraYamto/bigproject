@@ -2,7 +2,8 @@ package org.bobo.util.zookeeper;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
-import org.apache.zookeeper.ZooDefs.*;
+import org.apache.zookeeper.Watcher;
+import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.ZooKeeper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,12 +24,20 @@ public class ZkClient {
     @Value("${zookeeper.node-path}")
     private String nodePath ;
     ZooKeeper zkCli = null;
-
-    @PostConstruct
+    @Value("${zookeeper.parent-node-path}")
+    private String parentNodePath ;
+    //@PostConstruct
     private void init(){
         try {
             zkCli = new ZooKeeper(zkAddress, timeout, new NodeWatcher());
-            zkCli.create(nodePath, nodePath.getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+          /*  if(zkCli.exists(nodePath,false) != null){
+                System.out.println("节点"+nodePath +"存在");
+                zkCli.setData(nodePath,"boot-one".getBytes(),1);
+                zkCli.setData(parentNodePath,parentNodePath.getBytes(),1);
+            }*/
+            zkCli.create("/fm-rule/boot-one/bb","/fm-rule/boot-one/bb".getBytes(),Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+            zkCli.create("/fm-rule/boot-three","/fm-rule/boot-three".getBytes(),Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+
         } catch (KeeperException e) {
             logger.error("register zk client occer error!",e);
         } catch (InterruptedException e) {
