@@ -33,7 +33,7 @@ public class TimeCostAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         String methodName = signature.getDeclaringTypeName() + "." + signature.getName();
         long end = System.currentTimeMillis();
-        logger.info(methodName + "  cost :" + String.valueOf(end - start) + "ms");
+        logger.info(methodName + "  cost :" + (end - start) + "ms");
         return obj;
     }
 }

@@ -55,6 +55,9 @@ spring:
       buffer-memory: 40960
       linger: 1
 # 关闭自动配置启用所有请求得检测
+  elasticsearch:
+    rest:
+      uris: http://172.16.22.54:9401
 management:
   metrics:
     web:
@@ -109,3 +112,6 @@ zookeeper:
   ##ZK 服务端使用，客户端
   parent-node-path: /fm-rule
   node-path: ${zookeeper.parent-node-path}/boot-one,${zookeeper.parent-node-path}/boot-two
+elasticsearch:
+  hosts: 172.16.22.54:9401
+

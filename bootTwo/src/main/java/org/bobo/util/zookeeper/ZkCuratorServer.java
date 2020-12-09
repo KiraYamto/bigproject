@@ -7,6 +7,7 @@ import org.apache.curator.framework.recipes.cache.NodeCache;
 import org.apache.curator.framework.recipes.cache.PathChildrenCache;
 import org.apache.curator.framework.recipes.cache.PathChildrenCacheListener;
 import org.apache.curator.retry.ExponentialBackoffRetry;
+import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;
 import org.slf4j.Logger;
@@ -86,7 +87,7 @@ public class ZkCuratorServer {
             Stat stat = cf.checkExists().forPath(nodePath);
             if(stat == null){
                 logger.info("node {} does not exist,prepare to create it",nodePath);
-                cf.create().forPath(nodePath,heartBeatTime.getBytes());
+                cf.create().withMode(CreateMode.EPHEMERAL_SEQUENTIAL).forPath(nodePath,heartBeatTime.getBytes());
             }else {
                 logger.info("node {} exist,set heartbeat timestamp",nodePath);
 

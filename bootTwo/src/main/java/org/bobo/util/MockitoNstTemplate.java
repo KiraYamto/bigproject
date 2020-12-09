@@ -17,8 +17,8 @@ public class MockitoNstTemplate implements iMockito<NsNstTemplateQuery,NsNstTemp
             NsNstTemplateDto dto = Mockito.mock(NsNstTemplateDto.class);
             dto.setNstCode("NST-00" + i);
             dto.setNstName("bobotest" + i);
-            boolean hitCode = dto.getNstCode() != null? dto.getNstCode().contains(query.getNstCode()):false;
-            boolean hitName = dto.getNstName() != null? dto.getNstName().contains(query.getNstName()):false;
+            boolean hitCode = dto.getNstCode() != null && dto.getNstCode().contains(query.getNstCode());
+            boolean hitName = dto.getNstName() != null && dto.getNstName().contains(query.getNstName());
             if(hitCode||hitName){
                 list.add(dto);
             }

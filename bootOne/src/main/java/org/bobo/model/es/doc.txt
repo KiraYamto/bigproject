@@ -1,0 +1,37 @@
+    {
+        "_index": "zipkin:span-2020-09-20",
+            "_type": "span",
+            "_id": "AXSq1Jxg-vFxf5iIo0PA",
+            "_version": 1,
+            "_score": 1,
+            "_source": {
+        "traceId": "c07f7a79a396a993",
+                "duration": 84414,
+                "remoteEndpoint": {
+            "ipv4": "127.0.0.1",
+                    "port": 59021
+        },
+        "shared": true,
+                "localEndpoint": {
+            "serviceName": "boottwo-dev",
+                    "ipv4": "192.168.1.2"
+        },
+        "timestamp_millis": 1600593894579,
+                "kind": "SERVER",
+                "name": "post /second/getnsnsttemplatelist",
+                "id": "ef8a15e143848485",
+                "parentId": "c07f7a79a396a993",
+                "timestamp": 1600593894579192,
+                "tags": {
+            "http.method": "POST",
+                    "http.path": "/second/getNsNstTemplateList",
+                    "mvc.controller.class": "NsNstTemplateController",
+                    "mvc.controller.method": "getNsNstTemplateList"
+        }
+    },
+        "fields": {
+        "timestamp_millis": [
+        1600593894579
+    ]
+    }
+    }
